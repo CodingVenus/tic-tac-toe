@@ -1,3 +1,16 @@
-h1 {
-    color: red
+div {
+    border: 1px solid black 
+}
+.board {
+    height: 300px;
+    width: 300px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    background-color: lightcoral;
+    gap: 3px
+
+}
+.board > div {
+    background-color: rgb(230, 212, 223);
+    
 }
