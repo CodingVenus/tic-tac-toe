@@ -30,7 +30,6 @@ function startNewGame() {
         square.innerHTML = ""
     })
 
-
 }
 
 //After square is clicked, check to see if game can run, update gameBoard index and Square text
