@@ -73,9 +73,8 @@ nextPlayer();
 //     gameStopped = false;
 //     gameBoard = ["", "", "", "", "", "", "", "", ""];
 //     gameMessage.innerHTML = displayPlayer();
-//     document.querySelectorAll('.square').forEach(square => square.innerHTML = ""); 
-//     // document.querySelectorAll('.square').forEach(function(square) {
-//     //     square.innerHTML = ""})
+//     document.querySelectorAll('.square').forEach(function(square) {
+//         square.innerHTML = ""})
        
 
 // }
@@ -84,13 +83,13 @@ nextPlayer();
 // // As a user, I should be able to click on a square to add X first and then O, and so on
 function clickSquare(square, squareIndex) {
 
-
     //if game board has a value in index or gameStopped variable is true, stop program from moving forward
    
     if (gameBoard[squareIndex] || gameStopped) {
         return;
     }
 
+    gameMessage.innerHTML = displayPlayer();
 
     //make changes to gameboard
     square.innerHTML = currentPlayer;
@@ -112,6 +111,7 @@ function nextPlayer() {
     } else {
         currentPlayer = "X"
     }
+    gameMessage.innerHTML = displayPlayer();
 }
 
 
@@ -121,10 +121,10 @@ function displayWinner() {
     return `Player ${currentPlayer} Has Won!`
 }
 function displayTie() {
-    return "Both Players Have Tied!"
+    return "Both Players Have Tied!";
 }
 function displayPlayer(){
-    return `It is Player ${currentPlayer}'s Turn`
+    return `It is Player ${currentPlayer}'s Turn`;
 }
 
 
