@@ -22,8 +22,9 @@
 
 
 ## Wire Frames
--  [Wire Frame 1](create link for image)
-- I decided on a simple 3 x 3 grid as the setting for the Tic Tac Toe Game
+-  [Wire Frame](https://imgur.com/a/lDNfGmk)
+
+- I decided on a simple 3 x 3 grid as the setting for the Tic Tac Toe Game.
 
 ## Technologies Used
 
@@ -37,9 +38,10 @@
 
 - I began my process by creating pseudo code that would represent the game logic.
 - I then created a bare-bones 3 x 3 grid which utilized HTML divs with minimal styling using CSS Grid Layout.
-- I gave each of the div within the grid a number starting from 0.
+- I gave each of the div within the grid a temporary number assignment starting from 0.
     - This was a preemptive measure that I believed would help me more easily track click events within the console, as well as allow me to visualize how to create the logic to determine the winner.
-  - Include imgur image
+    - [Numbered Grid](https://imgur.com/a/y0u12qz)
+    
 - I then considered the User Stories and came up with an empty function in my Javascript file that would satisfy each one. 
     - For example, the first User Story “As a user, I should be able to start a new tic tac toe game” was given the function **startNewGame()**
     - This help keep my code organized and ensured that I would not forget to meet each requirement.
