@@ -1,6 +1,6 @@
 // console.log("JS is connected")
 //VARIABLES
-let currentPlayer = "First Player";
+let currentPlayer = "X";
 let gameBoard = ["", "", "", "", "", "", "", "", ""];
 
 const winningCombinations = [
@@ -37,9 +37,19 @@ function clickSquare(square, squareIndex) {
     // console.log(square)
     //??? how to get index of square clicked
     // updateBoard(squareClicked,squareClickedIndex)
-    
-
+    nextPlayer();
 }
+
+function nextPlayer () {
+    
+    if (currentPlayer === "X") {
+        currentPlayer = "O";
+    } else {
+        currentPlayer = "X"
+    }
+}
+
+
 
 // function updateBoard(squareClicked, squareClickedIndex){
 //     gameBoard[squareClickedIndex] = currentPlayer;
