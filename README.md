@@ -24,7 +24,7 @@
 ## Wire Frames
 -  [Wire Frame](https://imgur.com/a/lDNfGmk)
 
-- I decided on a simple 3 x 3 grid as the setting for the Tic Tac Toe Game.
+- I decided on a simple 3 x 3 grid as the board for the Tic Tac Toe Game.
 
 ## Technologies Used
 
