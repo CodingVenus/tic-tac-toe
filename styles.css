@@ -7,14 +7,12 @@
     width: 300px;
     display: grid;
     grid-template-columns: repeat(3, 2fr);
-    /* background-color: lightcoral; */
     gap: 2px;
     margin: 25px auto;
 }
 
 body {
     overflow: hidden;
-    /* background-image: linear-gradient(pink,orange) ; */
     background-image: linear-gradient(to left, rgba(255, 0, 0, 0), rgb(144, 100, 127));
 
 }
@@ -31,13 +29,13 @@ h1 {
     text-align: center;
     font-family: Righteous, sans;
     font-size: 70px;
-    color: rgba(67, 8, 8, 0.322);
+    /* color: rgba(100, 8, 8, 0.322); */
+    color: #9e839f;
     border-radius: 25%;
     line-height: 100px
 }
 
 .square:hover {
-    /* background-color: rgb(216, 201, 210); */
     background-color: rgb(216, 198, 215);
     cursor: pointer;
 }
@@ -58,9 +56,9 @@ button:hover {
 }
 
 .game-message {
-    font-size:20px;;
-    font-family: sans;
-    color:rgb(77, 4, 73)
+    font-size: 20px;;
+    font-family: Arial;
+    color:rgb(74, 34, 72)
 }
 
 .board>div {
