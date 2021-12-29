@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Licorice&family=Righteous&display=swap');
+
+
 .board {
     width: 300px;
     display: grid;
@@ -8,12 +11,19 @@
     gap: 2px;
     margin: 25px auto;
 }
+
 body {
     overflow: hidden;
     /* background-image: linear-gradient(pink,orange) ; */
-    background-image: linear-gradient(to left, rgba(255,0,0,0), rgb(144, 100, 127));
+    background-image: linear-gradient(to left, rgba(255, 0, 0, 0), rgb(144, 100, 127));
 
-    
+
+}
+
+h1 {
+    color: white;
+    font-family: Licorice, sans-serif;
+    font-size: 70px;
 }
 
 .square {
@@ -22,19 +32,36 @@ body {
     text-align: center;
     font-family: Righteous, sans;
     font-size: 70px;
-    color: rgba(170, 40, 40, 0.521);
+    color: rgba(67, 8, 8, 0.322);
     border-radius: 25%;
     line-height: 100px
-
 }
+
 .square:hover {
-    background-color: rgb(216, 201, 210);
+    /* background-color: rgb(216, 201, 210); */
+    background-color: rgb(216, 198, 215);
+    cursor: pointer;
 }
 
+button {
+
+    background-color: #765377;
+    border: solid 1px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+}
+button:hover {
+    cursor: pointer;
+    background-color: #7d627e;
+
+
+}
 
 .board>div {
     background-color: rgb(230, 212, 223);
-
 }
 
 section {
