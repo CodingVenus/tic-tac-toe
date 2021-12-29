@@ -1,4 +1,3 @@
-// console.log("JS is connected")
 //VARIABLES
 let currentPlayer = "X";
 let gameBoard = ["", "", "", "", "", "", "", "", ""];
@@ -15,8 +14,40 @@ const winningCombinations = [
     //Diagonal
     [1, 4, 8],
     [6, 4, 2]
-
 ]
+
+function determineWinner() {
+    let winner = false;
+
+    for (let i = 0; i < 9; i++) {
+
+        let winnerCombo = winningCombinations[i]
+
+        let boardCheckOne = gameBoard[winnerCombo[0]]
+        let boardCheckTwo = gameBoard[winnerCombo[1]]
+        let boardCheckThree = gameBoard[winnerCombo[2]]
+
+        if (!boardCheckOne || !boardCheckTwo || !boardCheckThree) {
+            //continue the loop without going onto the next if statement
+            continue;
+        }
+
+        if (boardCheckOne === boardCheckTwo && boardCheckTwo == boardCheckThree) {
+            winner = true;
+
+            //end the loop
+            break;
+        }
+
+    }
+
+    if (winner) {
+        
+    }
+
+
+}
+
 
 // // As a user, I should be able to start a new tic tac toe game
 // function startGame()
@@ -25,31 +56,24 @@ const winningCombinations = [
 // // As a user, I should be able to click on a square to add X first and then O, and so on
 function clickSquare(square, squareIndex) {
 
-    // const squareClicked = square.target;
-    // let squareClickedIndex = index;
-    // console.log(squareClickedIndex)
-    // console.log(squareClicked)
 
     //if game board has a value in index, stop program from moving forward
     if (gameBoard[squareIndex]) {
         return;
     }
+
+    //make changes to gameboard
     square.innerHTML = currentPlayer;
     gameBoard[squareIndex] = currentPlayer;
     console.log(gameBoard)
 
-
-
-
-    // console.log(square)
-    //??? how to get index of square clicked
-    // updateBoard(squareClicked,squareClickedIndex)
+    //switch between X and O for each turn
     nextPlayer();
 }
 
 
-function nextPlayer () {
-    
+function nextPlayer() {
+
     if (currentPlayer === "X") {
         currentPlayer = "O";
     } else {
@@ -57,13 +81,6 @@ function nextPlayer () {
     }
 }
 
-
-
-// function updateBoard(squareClicked, squareClickedIndex){
-//     gameBoard[squareClickedIndex] = currentPlayer;
-    
-//     squareClicked.value = currentPlayer;
-// }
 
 // // As a user, I should be shown a message after each turn for if I win, lose, tie or who's turn it is next
 // function displayWinner()
@@ -81,17 +98,23 @@ function nextPlayer () {
 // // As a user, I should not be able to continue playing once I win, lose, or tie
 // function stopGame()
 
+
+
+
 // // As a user, I should be able to play the game again without refreshing the page
 // //preventdeafult?
 
+
+
+//QuerySelectors
 
 //make an array of the divs
 const squares = document.getElementsByClassName('square');
 console.log(squares)
 
-// //QuerySelectors
-// let myClick = squares.addEventListener('click', clickSquare)
-// squares[0].addEventListener('click', clickSquare)
-Array.from(squares).forEach(function(square, squareIndex) {
+
+//cycle through array, adding click function to each element
+//utilize forEach function capabilites to retrieve index in event handler
+Array.from(squares).forEach(function (square, squareIndex) {
     square.addEventListener('click', () => clickSquare(square, squareIndex));
-})
+}) //-->dmitri pavlutin blog, "how to iterate array-like objects using forEach"
