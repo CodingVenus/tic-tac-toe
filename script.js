@@ -15,17 +15,19 @@ const winningCombinations = [
     [1, 4, 8],
     [6, 4, 2]
 ]
+console.log(winningCombinations[0])
 
 function determineWinner() {
     let winner = false;
 
-    for (let i = 0; i < 9; i++) {
+    for (let i = 0; i < 8; i++) {
 
-        let winnerCombo = winningCombinations[i]
+        let winnerCombo = winningCombinations[i];
+        console.log(winnerCombo[0])
 
-        let boardCheckOne = gameBoard[winnerCombo[0]]
-        let boardCheckTwo = gameBoard[winnerCombo[1]]
-        let boardCheckThree = gameBoard[winnerCombo[2]]
+        let boardCheckOne = gameBoard[winnerCombo[0]];
+        let boardCheckTwo = gameBoard[winnerCombo[1]];
+        let boardCheckThree = gameBoard[winnerCombo[2]];
 
         if (!boardCheckOne || !boardCheckTwo || !boardCheckThree) {
             //continue the loop without going onto the next if statement
@@ -42,9 +44,11 @@ function determineWinner() {
     }
 
     if (winner) {
-        
+        gameResults.innerHTML = displayWinner();
+        console.log(gameResults)
     }
 
+    nextPlayer();
 
 }
 
@@ -65,10 +69,11 @@ function clickSquare(square, squareIndex) {
     //make changes to gameboard
     square.innerHTML = currentPlayer;
     gameBoard[squareIndex] = currentPlayer;
-    console.log(gameBoard)
+    console.log(gameBoard[squareIndex])
 
     //switch between X and O for each turn
-    nextPlayer();
+    determineWinner();
+    
 }
 
 
@@ -83,9 +88,13 @@ function nextPlayer() {
 
 
 // // As a user, I should be shown a message after each turn for if I win, lose, tie or who's turn it is next
-// function displayWinner()
-// function displayDraw()
-// function currrentPlayer()
+function displayWinner() {
+    return `Player ${currentPlayer} Has Won!`
+}
+function displayDraw() {
+    
+}
+function currrentPlayer()
 
 
 // // As a user, I should not be able to click the same square twice
@@ -107,6 +116,9 @@ function nextPlayer() {
 
 
 //QuerySelectors
+
+const gameResults = document.querySelector('.game-results')
+console.log(gameResults)
 
 //make an array of the divs
 const squares = document.getElementsByClassName('square');
