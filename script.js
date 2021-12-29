@@ -47,6 +47,7 @@ function determineWinner() {
     if (winner) {
         gameResults.innerHTML = displayWinner();
         console.log(gameResults)
+        gameStopped = true;
     }
 
     nextPlayer();
