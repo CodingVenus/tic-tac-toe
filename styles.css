@@ -5,9 +5,8 @@ div {
     height: 300px;
     width: 300px;
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: repeat(3, 2fr);
     background-color: lightcoral;
-    gap: 3px
 
 }
 .board > div {

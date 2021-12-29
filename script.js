@@ -13,7 +13,7 @@ const winningCombinations = [
     [1, 4, 7],
     [2, 5, 8],
     //Diagonal
-    [1, 4, 8],
+    [0, 4, 8],
     [6, 4, 2]
 ]
 console.log(winningCombinations[0])
@@ -67,15 +67,19 @@ nextPlayer();
 }
 
 // // As a user, I should be able to start a new tic tac toe game
-function startNewGame(){
-    currentPlayer = "X";
-    gameStopped = false;
-    gameBoard = ["", "", "", "", "", "","", "", ""];
-    gameMessage.innerHTML = ///create function
-    document.querySelectorAll('.square').forEach(function(square) {
-        square.innerHTML = ""})   
-}
+// function startNewGame(){
+      
+//     currentPlayer = "X";
+//     gameStopped = false;
+//     gameBoard = ["", "", "", "", "", "", "", "", ""];
+//     gameMessage.innerHTML = displayPlayer();
+//     document.querySelectorAll('.square').forEach(square => square.innerHTML = ""); 
+//     // document.querySelectorAll('.square').forEach(function(square) {
+//     //     square.innerHTML = ""})
+       
 
+// }
+ 
 
 // // As a user, I should be able to click on a square to add X first and then O, and so on
 function clickSquare(square, squareIndex) {
@@ -95,8 +99,7 @@ function clickSquare(square, squareIndex) {
 
 
     
-
-    //switch between X and O for each turn
+    //track conditions and determine winner
     determineWinner();
 
 }
@@ -113,11 +116,15 @@ function nextPlayer() {
 
 
 // // As a user, I should be shown a message after each turn for if I win, lose, tie or who's turn it is next
+//MESSAGE FUNCTIONS
 function displayWinner() {
     return `Player ${currentPlayer} Has Won!`
 }
 function displayTie() {
     return "Both Players Have Tied!"
+}
+function displayPlayer(){
+    return `It is Player ${currentPlayer}'s Turn`
 }
 
 
@@ -142,7 +149,7 @@ function displayTie() {
 //QuerySelectors
 
     //button
-document.querySelector('.new-game').addEventListener('click', startNewGame)
+// document.querySelector('.new-game').addEventListener('click', startNewGame)
 
 
     //game result text
@@ -150,6 +157,7 @@ const gameMessage = document.querySelector('.game-message')
 
     //make an array of the divs
 const squares = document.getElementsByClassName('square');
+
 
 
     //cycle through array, adding click function to each element
