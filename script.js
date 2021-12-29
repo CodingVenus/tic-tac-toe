@@ -1,8 +1,9 @@
 //VARIABLES
+
 let currentPlayer = "X";
 let gameBoard = ["", "", "", "", "", "", "", "", ""];
 let gameStopped = false;
-
+//Each element represents a combination of indexes on the grid that will result in a winner 
 const winningCombinations = [
     //Across
     [0, 1, 2],
@@ -16,8 +17,42 @@ const winningCombinations = [
     [0, 4, 8],
     [6, 4, 2]
 ]
-console.log(winningCombinations[0])
 
+//FUNCTIONS
+//Clicking this function will clear the board and reset Current Player to X
+function startNewGame() {
+
+    currentPlayer = "X";
+    gameStopped = false;
+    gameBoard = ["", "", "", "", "", "", "", "", ""];
+    gameMessage.innerHTML = displayPlayer();
+    document.querySelectorAll('.square').forEach(function (square) {
+        square.innerHTML = ""
+    })
+
+
+}
+
+//After square is clicked, check to see if game can run, update gameBoard index and Square text
+function clickSquare(square, squareIndex) {
+
+    //if game board has a value in index or gameStopped variable is true, stop program from moving forward
+
+    if (gameBoard[squareIndex] || gameStopped) {
+        return;
+    }
+
+    gameMessage.innerHTML = displayPlayer();
+
+    //make changes to gameboard
+    square.innerHTML = currentPlayer;
+    gameBoard[squareIndex] = currentPlayer;
+
+    //track conditions and determine winner
+    determineWinner();
+}
+
+//Iterates through the array of winningCombinations and compares gameBoard values as those indexes
 function determineWinner() {
     let winner = false;
 
@@ -36,74 +71,34 @@ function determineWinner() {
 
         if (boardCheckOne === boardCheckTwo && boardCheckTwo == boardCheckThree) {
             winner = true;
-
             //end the loop
             break;
         }
 
     }
 
-    //winner
+    // Winner
     if (winner) {
         gameMessage.innerHTML = displayWinner();
         gameStopped = true;
         return;
     }
 
-   // Tie
-
+    // Tie
     let isATie = !gameBoard.includes("");
-    
-    
+
+
     if (isATie) {
         gameMessage.innerHTML = displayTie();
         gameStopped = true;
         return;
     }
 
-
-nextPlayer();
-
+    //If no conditions are satisifed, this function will be called 
+    nextPlayer();
 }
 
-// // As a user, I should be able to start a new tic tac toe game
-function startNewGame(){
-      
-    currentPlayer = "X";
-    gameStopped = false;
-    gameBoard = ["", "", "", "", "", "", "", "", ""];
-    gameMessage.innerHTML = displayPlayer();
-    document.querySelectorAll('.square').forEach(function(square) {
-        square.innerHTML = ""})
-       
-
-}
- 
-
-// // As a user, I should be able to click on a square to add X first and then O, and so on
-function clickSquare(square, squareIndex) {
-
-    //if game board has a value in index or gameStopped variable is true, stop program from moving forward
-   
-    if (gameBoard[squareIndex] || gameStopped) {
-        return;
-    }
-
-    gameMessage.innerHTML = displayPlayer();
-
-    //make changes to gameboard
-    square.innerHTML = currentPlayer;
-    gameBoard[squareIndex] = currentPlayer;
-    console.log(gameBoard[squareIndex])
-
-
-    
-    //track conditions and determine winner
-    determineWinner();
-
-}
-
-
+//Switch between X and O Player
 function nextPlayer() {
 
     if (currentPlayer === "X") {
@@ -114,43 +109,21 @@ function nextPlayer() {
     gameMessage.innerHTML = displayPlayer();
 }
 
-
-// // As a user, I should be shown a message after each turn for if I win, lose, tie or who's turn it is next
-//MESSAGE FUNCTIONS
+//Message Functions
 function displayWinner() {
     return `Player ${currentPlayer} Has Won!`
 }
 function displayTie() {
     return "Both Players Have Tied!";
 }
-function displayPlayer(){
+function displayPlayer() {
     return `It is Player ${currentPlayer}'s Turn`;
 }
 
-
-// // As a user, I should not be able to click the same square twice
-// function checkSquare()
-
-
-// // As a user, I should be shown a message when I win, lose or tie
-
-
-// // As a user, I should not be able to continue playing once I win, lose, or tie
-// function stopGame()
-
-
-
-
-// // As a user, I should be able to play the game again without refreshing the page
-// //preventdeafult?
-
-
-
-//QuerySelectors
-
+ //QUERY SELECTORS
+ 
     //button
 document.querySelector('.new-game').addEventListener('click', startNewGame)
-
 
     //game result text
 const gameMessage = document.querySelector('.game-message')
@@ -158,11 +131,9 @@ const gameMessage = document.querySelector('.game-message')
     //make an array of the divs
 const squares = document.getElementsByClassName('square');
 
-
-
     //cycle through array, adding click function to each element
     //utilize forEach function capabilites to retrieve index in event handler
 Array.from(squares).forEach(function (square, squareIndex) {
     square.addEventListener('click', () => clickSquare(square, squareIndex));
-}) 
+})
 //-->dmitri pavlutin blog, "how to iterate array-like objects using forEach"
