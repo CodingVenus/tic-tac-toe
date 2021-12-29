@@ -30,8 +30,15 @@
 // //preventdeafult?
 
 
-//VARIABLES
-let currentPlayer;
+// //VARIABLES
+// let currentPlayer;
 
-//QuerySelectors
-document.querySelector('.square').addEventListener('click', )
+// //QuerySelectors
+// document.querySelector('.square').addEventListener('click', )
+
+//make an array of the divs
+
+
+const squares = document.querySelectorAll('.square');
+
+
