@@ -45,25 +45,18 @@ function determineWinner() {
 
     //winner
     if (winner) {
-        gameResults.innerHTML = displayWinner();
+        gameMessage.innerHTML = displayWinner();
         gameStopped = true;
         return;
     }
 
-    //Tie
-    // let isATie = gameBoard.every (function (element) {
-    //     return !gameBoard[element]==="";
-    // })
-
-    // if (isATie) {
-    //     gameResults.innerHTML = displayTie();
-    //     gameStopped = true;
-    //     return;
-    // }
+   // Tie
 
     let isATie = !gameBoard.includes("");
+    
+    
     if (isATie) {
-        gameResults.innerHTML = displayTie();
+        gameMessage.innerHTML = displayTie();
         gameStopped = true;
         return;
     }
@@ -74,14 +67,22 @@ nextPlayer();
 }
 
 // // As a user, I should be able to start a new tic tac toe game
-// function startGame()
+function startNewGame(){
+    currentPlayer = "X";
+    gameStopped = false;
+    gameBoard = ["", "", "", "", "", "","", "", ""];
+    gameMessage.innerHTML = ///create function
+    document.querySelectorAll('.square').forEach(function(square) {
+        square.innerHTML = ""})   
+}
 
 
 // // As a user, I should be able to click on a square to add X first and then O, and so on
 function clickSquare(square, squareIndex) {
 
 
-    //if game board has a value in index, stop program from moving forward
+    //if game board has a value in index or gameStopped variable is true, stop program from moving forward
+   
     if (gameBoard[squareIndex] || gameStopped) {
         return;
     }
@@ -93,9 +94,7 @@ function clickSquare(square, squareIndex) {
     console.log(gameBoard[squareIndex])
 
 
-    //check to make sure game isn't stopped
-
-
+    
 
     //switch between X and O for each turn
     determineWinner();
@@ -142,16 +141,20 @@ function displayTie() {
 
 //QuerySelectors
 
-const gameResults = document.querySelector('.game-results')
-console.log(gameResults)
+    //button
+document.querySelector('.new-game').addEventListener('click', startNewGame)
 
-//make an array of the divs
+
+    //game result text
+const gameMessage = document.querySelector('.game-message')
+
+    //make an array of the divs
 const squares = document.getElementsByClassName('square');
-console.log(squares)
 
 
-//cycle through array, adding click function to each element
-//utilize forEach function capabilites to retrieve index in event handler
+    //cycle through array, adding click function to each element
+    //utilize forEach function capabilites to retrieve index in event handler
 Array.from(squares).forEach(function (square, squareIndex) {
     square.addEventListener('click', () => clickSquare(square, squareIndex));
-}) //-->dmitri pavlutin blog, "how to iterate array-like objects using forEach"
+}) 
+//-->dmitri pavlutin blog, "how to iterate array-like objects using forEach"
