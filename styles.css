@@ -2,18 +2,28 @@ div {
     border: 1px solid black 
 }
 .board {
-    height: 300px;
     width: 300px;
     display: grid;
     grid-template-columns: repeat(3, 2fr);
     background-color: lightcoral;
-
+    gap: 3px;
+    margin: 25px auto;
 }
+.square {
+    width: auto;
+    height: 100px;
+    text-align: center;
+    
+}
+
+h1 {
+    margin: auto auto;
+}
+
 .board > div {
     background-color: rgb(230, 212, 223);
     
 }
-
-#1 {
-    background-color: red
+.body {
+    text-align: center;
 }

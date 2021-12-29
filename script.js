@@ -67,17 +67,17 @@ nextPlayer();
 }
 
 // // As a user, I should be able to start a new tic tac toe game
-// function startNewGame(){
+function startNewGame(){
       
-//     currentPlayer = "X";
-//     gameStopped = false;
-//     gameBoard = ["", "", "", "", "", "", "", "", ""];
-//     gameMessage.innerHTML = displayPlayer();
-//     document.querySelectorAll('.square').forEach(function(square) {
-//         square.innerHTML = ""})
+    currentPlayer = "X";
+    gameStopped = false;
+    gameBoard = ["", "", "", "", "", "", "", "", ""];
+    gameMessage.innerHTML = displayPlayer();
+    document.querySelectorAll('.square').forEach(function(square) {
+        square.innerHTML = ""})
        
 
-// }
+}
  
 
 // // As a user, I should be able to click on a square to add X first and then O, and so on
@@ -149,7 +149,7 @@ function displayPlayer(){
 //QuerySelectors
 
     //button
-// document.querySelector('.new-game').addEventListener('click', startNewGame)
+document.querySelector('.new-game').addEventListener('click', startNewGame)
 
 
     //game result text
