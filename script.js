@@ -23,8 +23,7 @@ function determineWinner() {
 
     for (let i = 0; i < 8; i++) {
 
-        let winnerCombo = winningCombinations[i];
-        console.log(winnerCombo[0])
+        const winnerCombo = winningCombinations[i];
 
         let boardCheckOne = gameBoard[winnerCombo[0]];
         let boardCheckTwo = gameBoard[winnerCombo[1]];
@@ -44,16 +43,35 @@ function determineWinner() {
 
     }
 
+    //winner
     if (winner) {
         gameResults.innerHTML = displayWinner();
-        console.log(gameResults)
         gameStopped = true;
+        return;
     }
 
-    nextPlayer();
+    //Tie
+    // let isATie = gameBoard.every (function (element) {
+    //     return !gameBoard[element]==="";
+    // })
+
+    // if (isATie) {
+    //     gameResults.innerHTML = displayTie();
+    //     gameStopped = true;
+    //     return;
+    // }
+
+    let isATie = !gameBoard.includes("");
+    if (isATie) {
+        gameResults.innerHTML = displayTie();
+        gameStopped = true;
+        return;
+    }
+
+
+nextPlayer();
 
 }
-
 
 // // As a user, I should be able to start a new tic tac toe game
 // function startGame()
@@ -67,7 +85,7 @@ function clickSquare(square, squareIndex) {
     if (gameBoard[squareIndex] || gameStopped) {
         return;
     }
-    
+
 
     //make changes to gameboard
     square.innerHTML = currentPlayer;
@@ -77,11 +95,11 @@ function clickSquare(square, squareIndex) {
 
     //check to make sure game isn't stopped
 
-    
+
 
     //switch between X and O for each turn
     determineWinner();
-    
+
 }
 
 
@@ -99,8 +117,9 @@ function nextPlayer() {
 function displayWinner() {
     return `Player ${currentPlayer} Has Won!`
 }
-// function displayDraw()
-// function currrentPlayer()
+function displayTie() {
+    return "Both Players Have Tied!"
+}
 
 
 // // As a user, I should not be able to click the same square twice
