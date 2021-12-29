@@ -1,5 +1,4 @@
-@import 
-url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 
 .board {
     width: 300px;
@@ -9,25 +8,35 @@ url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
     gap: 2px;
     margin: 25px auto;
 }
+body {
+    overflow: hidden;
+    /* background-image: linear-gradient(pink,orange) ; */
+    background-image: linear-gradient(to left, rgba(255,0,0,0), rgb(144, 100, 127));
+
+    
+}
+
 .square {
     width: auto;
     height: 100px;
     text-align: center;
     font-family: Righteous, sans;
     font-size: 70px;
-    color:rgba(170, 40, 40, 0.521);
-    border-radius:25%;
-    
+    color: rgba(170, 40, 40, 0.521);
+    border-radius: 25%;
+    line-height: 100px
+
+}
+.square:hover {
+    background-color: rgb(216, 201, 210);
 }
 
-h1 {
-    margin: auto auto;
-}
 
-.board > div {
+.board>div {
     background-color: rgb(230, 212, 223);
-    
+
 }
-.body {
+
+section {
     text-align: center;
 }
