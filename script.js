@@ -23,22 +23,29 @@ const winningCombinations = [
 
 
 // // As a user, I should be able to click on a square to add X first and then O, and so on
-function clickSquare(square, index) {
+function clickSquare(square, squareIndex) {
 
-    let squareClicked = square;
-    let squareClickedIndex = index;
-    console.log(squareClickedIndex)
-    console.log(squareClicked)
+    // const squareClicked = square.target;
+    // let squareClickedIndex = index;
+    // console.log(squareClickedIndex)
+    // console.log(squareClicked)
+    
+    square.innerHTML = currentPlayer;
+    gameBoard[squareIndex] = currentPlayer;
+    console.log(gameBoard)
+
+    // console.log(square)
     //??? how to get index of square clicked
-    updateBoard()
+    // updateBoard(squareClicked,squareClickedIndex)
     
 
 }
 
-function updateBoard(square, squareClickedIndex){
-    gameBoard[squareClickedIndex] = currentPlayer;
-    square.innerHTML = currentPlayer;
-}
+// function updateBoard(squareClicked, squareClickedIndex){
+//     gameBoard[squareClickedIndex] = currentPlayer;
+    
+//     squareClicked.value = currentPlayer;
+// }
 
 // // As a user, I should be shown a message after each turn for if I win, lose, tie or who's turn it is next
 // function displayWinner()
@@ -67,6 +74,6 @@ console.log(squares)
 // //QuerySelectors
 // let myClick = squares.addEventListener('click', clickSquare)
 // squares[0].addEventListener('click', clickSquare)
-Array.from(squares).forEach(function(square, index) {
-    square.addEventListener('click', () => clickSquare(square, index));
+Array.from(squares).forEach(function(square, squareIndex) {
+    square.addEventListener('click', () => clickSquare(square, squareIndex));
 })
