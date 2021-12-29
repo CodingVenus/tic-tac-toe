@@ -5,7 +5,14 @@
 
 
 // // As a user, I should be able to click on a square to add X first and then O, and so on
-// function clickSquare()
+function clickSquare(square, index) {
+
+    let squareClicked = square.target;
+    let squareClickedIndex = index;
+    console.log(squareClickedIndex)
+    //??? how to get index of square clicked
+
+}
 // let square = document.querySelector('.square')
 // console.log(square)
 
@@ -33,12 +40,15 @@
 // //VARIABLES
 // let currentPlayer;
 
-// //QuerySelectors
-// document.querySelector('.square').addEventListener('click', )
+
 
 //make an array of the divs
+const squares = document.getElementsByClassName('square');
+console.log(squares)
 
-
-const squares = document.querySelectorAll('.square');
-
-
+// //QuerySelectors
+// let myClick = squares.addEventListener('click', clickSquare)
+// squares[0].addEventListener('click', clickSquare)
+Array.from(squares).forEach(function(square, index) {
+    square.addEventListener('click', () => clickSquare(square, index))
+})
