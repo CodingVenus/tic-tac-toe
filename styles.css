@@ -1,18 +1,22 @@
-div {
-    border: 1px solid black 
-}
+@import 
+url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
 .board {
     width: 300px;
     display: grid;
     grid-template-columns: repeat(3, 2fr);
-    background-color: lightcoral;
-    gap: 3px;
+    /* background-color: lightcoral; */
+    gap: 2px;
     margin: 25px auto;
 }
 .square {
     width: auto;
     height: 100px;
     text-align: center;
+    font-family: Righteous, sans;
+    font-size: 70px;
+    color:rgba(170, 40, 40, 0.521);
+    border-radius:25%;
     
 }
 
