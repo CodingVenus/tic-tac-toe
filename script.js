@@ -1,6 +1,7 @@
 //VARIABLES
 let currentPlayer = "X";
 let gameBoard = ["", "", "", "", "", "", "", "", ""];
+let gameStopped = false;
 
 const winningCombinations = [
     //Across
@@ -62,14 +63,20 @@ function clickSquare(square, squareIndex) {
 
 
     //if game board has a value in index, stop program from moving forward
-    if (gameBoard[squareIndex]) {
+    if (gameBoard[squareIndex] || gameStopped) {
         return;
     }
+    
 
     //make changes to gameboard
     square.innerHTML = currentPlayer;
     gameBoard[squareIndex] = currentPlayer;
     console.log(gameBoard[squareIndex])
+
+
+    //check to make sure game isn't stopped
+
+    
 
     //switch between X and O for each turn
     determineWinner();
@@ -91,10 +98,8 @@ function nextPlayer() {
 function displayWinner() {
     return `Player ${currentPlayer} Has Won!`
 }
-function displayDraw() {
-    
-}
-function currrentPlayer()
+// function displayDraw()
+// function currrentPlayer()
 
 
 // // As a user, I should not be able to click the same square twice
