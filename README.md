@@ -2,7 +2,7 @@
 
 # Venus Teah - Tic Tac Toe Project
 
-[Link to game!]()
+[Link to game!](https://eager-engelbart-e549a4.netlify.app/)
 
 
 ## Objective
