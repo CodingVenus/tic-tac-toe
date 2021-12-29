@@ -40,7 +40,7 @@
 - I then created a bare-bones 3 x 3 grid which utilized HTML divs along with styling through the CSS Grid Layout.
 - I gave each of these divs a temporary number assignment starting from 0.
     - This was a preemptive measure that I believed would help me more easily track click events within the console, as well as allow me to visualize how to create the logic to determine the winner.
-    - [Numbered Grid](https://imgur.com/a/y0u12qz)
+    - [My Initial Numbered Grid](https://imgur.com/a/y0u12qz)
     
 - I then considered the User Stories and came up with empty functions within my Javascript file that would satisfy each one. 
     - For example, the first User Story “As a user, I should be able to start a new tic tac toe game” was given the function **startNewGame()**
