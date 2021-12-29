@@ -29,16 +29,24 @@ function clickSquare(square, squareIndex) {
     // let squareClickedIndex = index;
     // console.log(squareClickedIndex)
     // console.log(squareClicked)
-    
+
+    //if game board has a value in index, stop program from moving forward
+    if (gameBoard[squareIndex]) {
+        return;
+    }
     square.innerHTML = currentPlayer;
     gameBoard[squareIndex] = currentPlayer;
     console.log(gameBoard)
+
+
+
 
     // console.log(square)
     //??? how to get index of square clicked
     // updateBoard(squareClicked,squareClickedIndex)
     nextPlayer();
 }
+
 
 function nextPlayer () {
     
